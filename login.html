@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Registration</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Additional styles for login page */
+        body {
+            background: linear-gradient(135deg, #e3e6f3 0%, #f5f5f5 100%);
+            font-family: "Spartan", sans-serif;
+        }
+        .auth-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .auth-form {
+            background: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 400px;
+            transition: box-shadow 0.3s ease, opacity 0.5s ease;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .auth-form:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+        .auth-form h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #088178;
+            font-size: 28px;
+            font-weight: 700;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: #088178;
+            box-shadow: 0 0 0 3px rgba(8, 129, 120, 0.1);
+        }
+        .auth-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #088178 0%, #065a52 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+        .auth-btn:hover {
+            background: linear-gradient(135deg, #065a52 0%, #044a44 100%);
+            transform: translateY(-2px);
+        }
+        .auth-btn:active {
+            transform: translateY(0);
+        }
+        .toggle-link {
+            text-align: center;
+            margin-top: 25px;
+        }
+        .toggle-link a {
+            color: #088178;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .toggle-link a:hover {
+            color: #065a52;
+            text-decoration: underline;
+        }
+        .message {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: 500;
+            padding: 10px;
+            border-radius: 5px;
+            transition: opacity 0.3s ease;
+        }
+        .message.success {
+            color: #28a745;
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+        .message.error {
+            color: #dc3545;
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+        @media (max-width: 477px) {
+            .auth-form {
+                padding: 25px;
+                margin: 10px;
+            }
+            .auth-form h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Auth Section -->
+    <section class="auth-container section-p1">
+        <div class="auth-form" id="login-form">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="login-username">Username</label>
+                    <input type="text" id="login-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit" class="auth-btn">Login</button>
+            </form>
+            <div class="toggle-link">
+                <a href="#" id="show-register">Don't have an account? Register</a>
+            </div>
+            <div id="login-message" class="message"></div>
+        </div>
+
+        <div class="auth-form" id="register-form" style="display: none;">
+            <h2>Register</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="register-username">Username</label>
+                    <input type="text" id="register-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-confirm-password">Confirm Password</label>
+                    <input type="password" id="register-confirm-password" required>
+                </div>
+                <button type="submit" class="auth-btn">Register</button>
+            </form>
+            <div class="toggle-link">
+                <a href="#" id="show-login">Already have an account? Login</a>
+            </div>
+            <div id="register-message" class="message"></div>
+        </div>
+    </section>
+
+    <script>
+        window.data = {
+  "products": [
+    {
+      "id": 101,
+      "img": "img/products/f1.jpg",
+      "brand": "adidas",
+      "title": "Classic White T-Shirt",
+      "rating": 4.5,
+      "price": 25,
+      "category": "shirts",
+      "description": "A timeless classic white t-shirt made from soft cotton fabric, perfect for everyday wear."
+    },
+    {
+      "id": 102,
+      "img": "img/products/f2.jpg",
+      "brand": "Nike",
+      "title": "Sporty Running Shorts",
+      "rating": 4.7,
+      "price": 35,
+      "category": "shorts",
+      "description": "Lightweight and breathable running shorts designed for maximum comfort during workouts."
+    },
+    {
+      "id": 103,
+      "img": "img/products/f3.jpg",
+      "brand": "Puma",
+      "title": "Casual Hoodie",
+      "rating": 4.3,
+      "price": 50,
+      "category": "hoodies",
+      "description": "Cozy hoodie with a relaxed fit, ideal for layering or lounging around."
+    },
+    {
+      "id": 104,
+      "img": "img/products/f4.jpg",
+      "brand": "Levi's",
+      "title": "Slim Fit Jeans",
+      "rating": 4.6,
+      "price": 80,
+      "category": "jeans",
+      "description": "Durable slim fit jeans with a modern cut, made from high-quality denim."
+    },
+    {
+      "id": 105,
+      "img": "img/products/f5.jpg",
+      "brand": "H&M",
+      "title": "Striped Polo Shirt",
+      "rating": 4.2,
+      "price": 30,
+      "category": "shirts",
+      "description": "Stylish striped polo shirt with a comfortable fit and breathable material."
+    },
+    {
+      "id": 106,
+      "img": "img/products/f6.jpg",
+      "brand": "Zara",
+      "title": "Elegant Blouse",
+      "rating": 4.4,
+      "price": 45,
+      "category": "blouses",
+      "description": "Elegant blouse with a flattering silhouette, perfect for office or casual outings."
+    },
+    {
+      "id": 107,
+      "img": "img/products/f7.jpg",
+      "brand": "Under Armour",
+      "title": "Compression Leggings",
+      "rating": 4.8,
+      "price": 60,
+      "category": "leggings",
+      "description": "High-performance compression leggings that provide support and moisture-wicking technology."
+    },
+    {
+      "id": 108,
+      "img": "img/products/f8.jpg",
+      "brand": "Gap",
+      "title": "Denim Jacket",
+      "rating": 4.5,
+      "price": 70,
+      "category": "jackets",
+      "description": "Classic denim jacket with a vintage look, versatile for any season."
+    },
+    {
+      "id": 109,
+      "img": "img/products/n1.jpg",
+      "brand": "Reebok",
+      "title": "Athletic Sneakers",
+      "rating": 4.6,
+      "price": 90,
+      "category": "shoes",
+      "description": "Comfortable athletic sneakers with excellent cushioning for all-day wear."
+    },
+    {
+      "id": 110,
+      "img": "img/products/n2.jpg",
+      "brand": "Converse",
+      "title": "Canvas High-Tops",
+      "rating": 4.3,
+      "price": 55,
+      "category": "shoes",
+      "description": "Iconic canvas high-top sneakers that never go out of style."
+    },
+    {
+      "id": 111,
+      "img": "img/products/n3.jpg",
+      "brand": "Tommy Hilfiger",
+      "title": "Button-Down Shirt",
+      "rating": 4.4,
+      "price": 40,
+      "category": "shirts",
+      "description": "Preppy button-down shirt with a tailored fit and signature logo."
+    },
+    {
+      "id": 112,
+      "img": "img/products/n4.jpg",
+      "brand": "Calvin Klein",
+      "title": "Minimalist Watch",
+      "rating": 4.7,
+      "price": 120,
+      "category": "accessories",
+      "description": "Sleek minimalist watch with a stainless steel band and precise timekeeping."
+    },
+    {
+      "id": 113,
+      "img": "img/products/n5.jpg",
+      "brand": "Ray-Ban",
+      "title": "Aviator Sunglasses",
+      "rating": 4.9,
+      "price": 150,
+      "category": "accessories",
+      "description": "Classic aviator sunglasses with UV protection and a timeless design."
+    },
+    {
+      "id": 114,
+      "img": "img/products/n6.jpg",
+      "brand": "Adidas",
+      "title": "Training Tank Top",
+      "rating": 4.5,
+      "price": 28,
+      "category": "tops",
+      "description": "Breathable training tank top designed for intense workouts and gym sessions."
+    },
+    {
+      "id": 115,
+      "img": "img/products/n7.jpg",
+      "brand": "Forever 21",
+      "title": "Floral Maxi Dress",
+      "rating": 4.2,
+      "price": 38,
+      "category": "dresses",
+      "description": "Flowy floral maxi dress with a bohemian vibe, perfect for summer days."
+    },
+    {
+      "id": 116,
+      "img": "img/products/n8.jpg",
+      "brand": "Uniqlo",
+      "title": "Thermal Long Sleeve",
+      "rating": 4.6,
+      "price": 32,
+      "category": "shirts",
+      "description": "Warm thermal long sleeve shirt made from soft, insulating fabric for cold weather."
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "user1",
+      "password": "pass1",
+      "email": "user1@example.com",
+      "name": "User One",
+      "orders": []
+    },
+    {
+      "id": 2,
+      "username": "user2",
+      "password": "pass2",
+      "email": "user2@example.com",
+      "name": "User Two",
+      "orders": []
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "userId": 1,
+      "items": [
+        {
+          "productId": 101,
+          "quantity": 2,
+          "price": 78
+        }
+      ],
+      "total": 156,
+      "date": "2025-12-25"
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "items": [
+        {
+          "productId": 102,
+          "quantity": 1,
+          "price": 50
+        }
+      ],
+      "total": 50,
+      "date": "2025-12-24"
+    }
+  ]
+};
+    </script>
+    <script>
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+
+        // Load users from server and merge
+        fetch('http://localhost:3003/users')
+            .then(response => response.json())
+            .then(data => {
+                // Merge server users with local
+                const serverUsers = data;
+                const localUsers = JSON.parse(localStorage.getItem('users')) || [];
+                // Use server as primary, add local if not in server
+                const merged = [...serverUsers];
+                localUsers.forEach(lu => {
+                    if (!merged.find(su => su.username === lu.username)) {
+                        merged.push(lu);
+                    }
+                });
+                users = merged;
+                localStorage.setItem('users', JSON.stringify(users));
+            })
+            .catch(error => {
+                console.error('Error loading users from server:', error);
+                // Keep localStorage users
+            });
+
+        // No embedded users in window.data
+
+        // Toggle between login and register forms
+        document.getElementById('show-register').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('login-form').style.display = 'none';
+            document.getElementById('register-form').style.display = 'block';
+            document.getElementById('register-message').textContent = '';
+            document.getElementById('register-message').classList.remove('error');
+        });
+
+        document.getElementById('show-login').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('register-form').style.display = 'none';
+            document.getElementById('login-form').style.display = 'block';
+            document.getElementById('login-message').textContent = '';
+            document.getElementById('login-message').classList.remove('error');
+        });
+
+        // Registration
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('register-username').value;
+            const email = document.getElementById('register-email').value;
+            const password = document.getElementById('register-password').value;
+            const confirmPassword = document.getElementById('register-confirm-password').value;
+
+            // Validate password match
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            // Password validation
+if (
+    password.length < 8 ||
+    !/(?=.*[a-z])/.test(password) ||      // lowercase
+    !/(?=.*[A-Z])/.test(password) ||      // uppercase
+    !/(?=.*\d)/.test(password) ||         // number
+    !/(?=.*[@$!%*?&])/.test(password) ||  // special character
+    /\s/.test(password)                   // no spaces
+) {
+    alert(
+        `Password must be at least 8 characters long and contain:
+         One uppercase letter\n 
+         One lowercase letter\n 
+         One number\n
+         One special character\n 
+         No spaces`
+    );
+    return;
+}
+
+
+            // Check if user already exists
+            const existingUser = users.find(user => user.username === username);
+            if (existingUser) {
+                document.getElementById('register-message').textContent = 'Username already exists!';
+                document.getElementById('register-message').classList.add('error');
+                return;
+            }
+
+            // Check banned users on server (by username or email)
+            // Removed banned check as endpoint doesn't exist
+
+            // Store user
+            const newUser = { username, email, password };
+            // Try server first
+            fetch('http://localhost:3003/users', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newUser)
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Server error');
+                }
+            })
+            .then(serverUser => {
+                // Success with server
+                users.push(serverUser);
+                localStorage.setItem('users', JSON.stringify(users));
+                document.getElementById('register-message').textContent = 'Registration successful! Please login.';
+                document.getElementById('register-message').classList.remove('error');
+                document.getElementById('register-message').classList.add('success');
+                document.getElementById('registerForm').reset();
+            })
+            .catch(error => {
+                console.warn('Server not available, storing in localStorage:', error);
+                // Fallback to localStorage
+                const lsUsers = JSON.parse(localStorage.getItem('users')) || [];
+                const maxId = lsUsers.reduce((m, u) => (u.id && u.id > m ? u.id : m), 0);
+                const assigned = { ...newUser, id: maxId + 1 };
+                lsUsers.push(assigned);
+                localStorage.setItem('users', JSON.stringify(lsUsers));
+                users = lsUsers;
+                document.getElementById('register-message').textContent = 'Registration successful! Please login.';
+                document.getElementById('register-message').classList.remove('error');
+                document.getElementById('register-message').classList.add('success');
+                document.getElementById('registerForm').reset();
+            });
+                });
+            // });
+        // });
+
+        // Login
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+
+            console.log('Users:', users);
+            console.log('Attempting login with:', username, password);
+
+            const user = users.find(user => user.username === username && user.password === password);
+
+            if (user) {
+                console.log('User found:', user);
+                // Store login status
+                localStorage.setItem('loggedInUser', username);
+                localStorage.setItem('currentUserId', user.id);
+                // Store login data in JSON
+                fetch('http://localhost:3003/logins', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ userId: user.id, username, loginDate: new Date().toISOString() })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    localStorage.setItem('currentLoginId', data.id);
+                    // Update user as logged in
+                    user.isLoggedIn = true;
+                    return fetch(`http://localhost:3003/users/${user.id}`, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(user)
+                    });
+                })
+                .catch(error => console.error('Error logging login:', error));
+                // Redirect to home page
+                window.location.href = 'index.html';
+            } else {
+                console.log('User not found');
+                document.getElementById('login-message').textContent = 'Invalid username or password!';
+                document.getElementById('login-message').classList.add('error');
+            }
+
+            // Clear form
+            this.reset();
+        });
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>

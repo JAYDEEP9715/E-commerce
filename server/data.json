@@ -1,0 +1,459 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "img": "bg-image/s-1.png",
+      "brand": "Nike",
+      "title": "Men's Graphic Shirt",
+      "rating": 4.6,
+      "price": 500,
+      "category": "men",
+      "description": "Comfortable cotton t-shirt with a cool graphic print."
+    },
+    {
+      "id": "2",
+      "img": "bg-image/s-2.png",
+      "brand": "Adidas",
+      "title": "Athletic Shorts",
+      "rating": 4.7,
+      "price": 800,
+      "category": "men",
+      "description": "Moisture-wicking shorts for intense workouts."
+    },
+    {
+      "id": "3",
+      "img": "bg-image/s-3.png",
+      "brand": "Puma",
+      "title": "Stylish Shirt",
+      "rating": 4.4,
+      "price": 1500,
+      "category": "men",
+      "description": "Stylish shirt foe men."
+    },
+    {
+      "id": "4",
+      "img": "bg-image/s-4.png",
+      "brand": "Levi's",
+      "title": "White shirt",
+      "rating": 4.5,
+      "price": 2000,
+      "category": "men",
+      "description": "White shirt ,you like."
+    },
+    {
+      "id": "5",
+      "img": "bg-image/t-1.png",
+      "brand": "H&M",
+      "title": "Cotton Polo",
+      "rating": 4.3,
+      "price": 500,
+      "category": "men",
+      "description": "Breathable polo shirt for casual days."
+    },
+    {
+      "id": "8",
+      "img": "bg-image/kids/t-1.png",
+      "brand": "Gap",
+      "title": "Kids Jacket",
+      "rating": 4.5,
+      "price": 800,
+      "category": "kids",
+      "description": "Durable jacket for kids' outdoor activities."
+    },
+    {
+      "id": "9",
+      "img": "bg-image/kids/t-2.png",
+      "brand": "Nike",
+      "title": "Boys T-shirt",
+      "rating": 4.4,
+      "price": 500,
+      "category": "kids",
+      "description": "Fun t-shirt for boys with vibrant colors."
+    },
+    {
+      "id": "10",
+      "img": "bg-image/kids/bs-1.png",
+      "brand": "Puma",
+      "title": "Kids Athletic Shorts",
+      "rating": 4.6,
+      "price": 1000,
+      "category": "kids",
+      "description": "Lightweight shorts for kids' sports."
+    },
+    {
+      "id": "11",
+      "img": "bg-image/kids/bs-2.png",
+      "brand": "Adidas",
+      "title": "Children's shirt",
+      "rating": 4.7,
+      "price": 500,
+      "category": "kids",
+      "description": "Comfortable sneakers for growing feet."
+    },
+    {
+      "id": "12",
+      "img": "bg-image/kids/gf-1.png",
+      "brand": "Zara",
+      "title": "Girls Summer Dress",
+      "rating": 4.5,
+      "price": 800,
+      "category": "kids",
+      "description": "Light dress perfect for warm weather."
+    },
+    {
+      "id": "13",
+      "img": "bg-image/kids/gf-2.png",
+      "brand": "H&M",
+      "title": "Girls Mini Skirt",
+      "rating": 4.2,
+      "price": 800,
+      "category": "kids",
+      "description": "Playful skirt for girls' outfits."
+    },
+    {
+      "id": "14",
+      "img": "bg-image/kids/gt-1.png",
+      "brand": "Forever 21",
+      "title": "Girls Tank Top",
+      "rating": 4.3,
+      "price": 600,
+      "category": "kids",
+      "description": "Sleeveless top for hot days."
+    },
+    {
+      "id": "15",
+      "img": "bg-image/kids/gt-2.png",
+      "brand": "Uniqlo",
+      "title": "Girls T-shirt",
+      "rating": 4.4,
+      "price": 900,
+      "category": "kids",
+      "description": "Soft jogger pants for comfort."
+    },
+    {
+      "id": "16",
+      "img": "bg-image/t-2.png",
+      "brand": "Reebok",
+      "title": "Classic T-shirt",
+      "rating": 4.6,
+      "price": 2500,
+      "category": "men",
+      "description": "Supportive sneakers for jogging enthusiasts."
+    },
+    {
+      "id": "17",
+      "img": "bg-image/t-3.png",
+      "brand": "Converse",
+      "title": "Classic T-shirt",
+      "rating": 4.3,
+      "price": 1500,
+      "category": "men",
+      "description": "Timeless high-tops for everyday style."
+    },
+    {
+      "id": "18",
+      "img": "bg-image/t-4.png",
+      "brand": "Tommy Hilfiger",
+      "title": "Oxford T-shirt",
+      "rating": 4.4,
+      "price": 1200,
+      "category": "men",
+      "description": "Formal shirt with a classic collar."
+    },
+    {
+      "id": "19",
+      "img": "bg-image/kids-pants/bp-1.png",
+      "brand": "Nike",
+      "title": "Boys Chinos",
+      "rating": 4.2,
+      "price": 1200,
+      "category": "kids",
+      "description": "Smart pants for boys' school wear."
+    },
+    {
+      "id": "20",
+      "img": "bg-image/kids-pants/bp-2.png",
+      "brand": "Adidas",
+      "title": "Kids Sweatpants",
+      "rating": 4.3,
+      "price": 1400,
+      "category": "kids",
+      "description": "Cozy pants for lounging."
+    },
+    {
+      "id": "21",
+      "img": "bg-image/kids-pants/bp-3.png",
+      "brand": "Puma",
+      "title": "Kids Cargo Pants",
+      "rating": 4.4,
+      "price": 1100,
+      "category": "kids",
+      "description": "Functional pants with multiple pockets."
+    },
+    {
+      "id": "22",
+      "img": "bg-image/kids-pants/bp-4.png",
+      "brand": "Levi's",
+      "title": "Kids Jeans",
+      "rating": 4.5,
+      "price": 600,
+      "category": "kids",
+      "description": "Rugged jeans for adventurous kids."
+    },
+    {
+      "id": "23",
+      "img": "bg-image/kids-pants/gp-1.png",
+      "brand": "H&M",
+      "title": "Women Leggings",
+      "rating": 4.2,
+      "price": 600,
+      "category": "women",
+      "description": "Stretchy leggings for women's active days."
+    },
+    {
+      "id": "24",
+      "img": "bg-image/kids-pants/gp-2.png",
+      "brand": "Gap",
+      "title": "Women Jeans",
+      "rating": 4.3,
+      "price": 700,
+      "category": "women",
+      "description": "Denim jeans for women's casual wear."
+    },
+    {
+      "id": "25",
+      "img": "bg-image/kids-pants/gp-3.png",
+      "brand": "Zara",
+      "title": "Women Cargo Pants",
+      "rating": 4.4,
+      "price": 800,
+      "category": "women",
+      "description": "Functional cargo pants for women's outdoor activities."
+    },
+    {
+      "id": "26",
+      "img": "bg-image/kids-pants/gp-4.png",
+      "brand": "Forever 21",
+      "title": "Women Sweatpants",
+      "rating": 4.5,
+      "price": 500,
+      "category": "women",
+      "description": "Cozy sweatpants for women's relaxation."
+    },
+    {
+      "id": "27",
+      "img": "bg-image/men-pants/mp-1.png",
+      "brand": "Levi's",
+      "title": "Men Chinos",
+      "rating": 4.6,
+      "price": 3000,
+      "category": "men",
+      "description": "Smart chinos for men's professional look."
+    },
+    {
+      "id": "28",
+      "img": "bg-image/men-pants/mp-2.png",
+      "brand": "Nike",
+      "title": "Men Joggers",
+      "rating": 4.7,
+      "price": 3200,
+      "category": "men",
+      "description": "Comfortable joggers for men's active lifestyle."
+    },
+    {
+      "id": "29",
+      "img": "bg-image/men-pants/mp-3.png",
+      "brand": "Adidas",
+      "title": "Men Cargo Pants",
+      "rating": 4.5,
+      "price": 3100,
+      "category": "men",
+      "description": "Utility cargo pants for men's outdoor activities."
+    },
+    {
+      "id": "30",
+      "img": "bg-image/men-pants/mp-4.png",
+      "brand": "Puma",
+      "title": "Men Track Pants",
+      "rating": 4.4,
+      "price": 2900,
+      "category": "men",
+      "description": "Athletic track pants for men's workouts."
+    },
+    {
+      "id": "31",
+      "img": "bg-image/men-pants/mp-5.png",
+      "brand": "Reebok",
+      "title": "Men Sweatpants",
+      "rating": 4.3,
+      "price": 2800,
+      "category": "men",
+      "description": "Cozy sweatpants for men's leisure time."
+    },
+    {
+      "id": "32",
+      "img": "bg-image/men-pants/mp-6.png",
+      "brand": "Converse",
+      "title": "Men Slim Pants",
+      "rating": 4.2,
+      "price": 2700,
+      "category": "men",
+      "description": "Slim-fit pants for men's modern style."
+    },
+    {
+      "id": "33",
+      "img": "bg-image/men-pants/mp-7.png",
+      "brand": "Tommy Hilfiger",
+      "title": "Men Casual Pants",
+      "rating": 4.6,
+      "price": 3300,
+      "category": "men",
+      "description": "Versatile casual pants for men's wardrobe."
+    },
+    {
+      "id": "34",
+      "img": "bg-image/men-pants/mp-8.png",
+      "brand": "H&M",
+      "title": "Men Jeans",
+      "rating": 4.5,
+      "price": 2600,
+      "category": "men",
+      "description": "Classic jeans for men's everyday wear."
+    },
+    {
+      "id": "35",
+      "img": "bg-image/w-image/f1.png",
+      "brand": "Zara",
+      "title": "Women Dress",
+      "rating": 4.7,
+      "price": 1500,
+      "category": "women",
+      "description": "Elegant women dress."
+    },
+    {
+      "id": "36",
+      "img": "bg-image/w-image/f2.png",
+      "brand": "H&M",
+      "title": "Women Dress",
+      "rating": 4.6,
+      "price": 1400,
+      "category": "women",
+      "description": "Stylish women dress."
+    },
+    {
+      "id": "37",
+      "img": "bg-image/w-image/f3.png",
+      "brand": "Forever 21",
+      "title": "Women Dress",
+      "rating": 4.5,
+      "price": 1200,
+      "category": "women",
+      "description": "Trendy women dress."
+    },
+    {
+      "id": "38",
+      "img": "bg-image/w-image/f4.png",
+      "brand": "Uniqlo",
+      "title": "Women Dress",
+      "rating": 4.4,
+      "price": 1100,
+      "category": "women",
+      "description": "Comfortable women dress."
+    },
+    {
+      "id": "39",
+      "img": "bg-image/w-image/f5.png",
+      "brand": "Gap",
+      "title": "Women Dress",
+      "rating": 4.3,
+      "price": 3300,
+      "category": "women",
+      "description": "Casual women dress."
+    },
+    {
+      "id": "40",
+      "img": "bg-image/w-image/f6.png",
+      "brand": "Nike",
+      "title": "Women Dress",
+      "rating": 4.2,
+      "price": 3000,
+      "category": "women",
+      "description": "Sporty women dress."
+    },
+    {
+      "id": "41",
+      "img": "bg-image/w-image/f7.png",
+      "brand": "Adidas",
+      "title": "Women Dress",
+      "rating": 4.8,
+      "price": 3600,
+      "category": "women",
+      "description": "High-quality women dress."
+    },
+    {
+      "id": "42",
+      "img": "bg-image/w-image/f8.png",
+      "brand": "Puma",
+      "title": "Women Dress",
+      "rating": 4.7,
+      "price": 3500,
+      "category": "women",
+      "description": "Durable women dress."
+    },
+    {
+      "id": "43",
+      "img": "bg-image/w-image/fj1.png",
+      "brand": "Levi's",
+      "title": "Women Chinos",
+      "rating": 4.6,
+      "price": 1000,
+      "category": "women",
+      "description": "Smart chinos for women's professional look."
+    },
+    {
+      "id": "44",
+      "img": "bg-image/w-image/fj2.png",
+      "brand": "Reebok",
+      "title": "Women Joggers",
+      "rating": 4.5,
+      "price": 1900,
+      "category": "women",
+      "description": "Comfortable joggers for women's active lifestyle."
+    },
+    {
+      "id": "45",
+      "img": "bg-image/w-image/fj3.png",
+      "brand": "Converse",
+      "title": "Women Cargo Pants",
+      "rating": 4.4,
+      "price": 1800,
+      "category": "women",
+      "description": "Utility cargo pants for women's outdoor activities."
+    },
+    {
+      "id": "46",
+      "img": "bg-image/w-image/fj4.png",
+      "brand": "Tommy Hilfiger",
+      "title": "Women Sweatpants",
+      "rating": 4.3,
+      "price": 2100,
+      "category": "women",
+      "description": "Cozy sweatpants for women's leisure time."
+    },
+    {
+      "id": "47",
+      "img": "bg-image/w-image/fj5.png",
+      "brand": "Zara",
+      "title": "Women Jacket",
+      "rating": 4.2,
+      "price": 1700,
+      "category": "women",
+      "description": "Stylish women jacket."
+    }
+  ],
+  "users": [],
+  "orders": [],
+  "logins": [],
+  "contacts": [],
+  "newsletters": []
+}

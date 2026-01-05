@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .admin-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .admin-section {
+            margin-bottom: 40px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .admin-section h2 {
+            color: #088178;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        table th {
+            background-color: #f2f2f2;
+        }
+        .delete-btn {
+            background: #ff0000;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .delete-btn:hover {
+            background: #cc0000;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="header">
+        <a href="#"><img src="" alt="" style="width: 80px; height: 80px; border-radius: 50%;"></a>
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="lg-bag"><a class="cart-link" href="cart.html"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count">0</span></a></li>
+                <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
+            </ul>
+        </div>
+        <div id="mobile">
+            <a class="cart-link" href="cart.html"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count">0</span></a>
+             <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
+
+    <div class="admin-container">
+        <h1>Admin Panel</h1>
+
+        <div class="admin-section">
+            <h2>Users</h2>
+            <button id="refresh-btn" class="normal" style="margin-bottom: 10px;">Refresh Data</button>
+            <table id="users-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Orders</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <div class="admin-section">
+            <h2>Orders</h2>
+            <table id="orders-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>User ID</th>
+                        <th>Items</th>
+                        <th>Total</th>
+                        <th>Address</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <div class="admin-section">
+            <h2>Contacts</h2>
+            <table id="contacts-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Subject</th>
+                        <th>Message</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <div class="admin-section">
+            <h2>Logins</h2>
+            <table id="logins-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Login Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <div class="admin-section">
+            <h2>Newsletters</h2>
+            <table id="newsletters-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Email</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Load data
+        let usersData = [];
+        function loadData() {
+            // Users
+            fetch('http://localhost:3003/users', { headers: { 'Cache-Control': 'no-cache' } })
+                .then(response => response.json())
+                .then(users => {
+                    usersData = users;
+                    const tbody = document.querySelector('#users-table tbody');
+                    tbody.innerHTML = users.map(user => `
+                        <tr>
+                            <td>${user.id}</td>
+                            <td>${user.username}</td>
+                            <td>${user.email}</td>
+                            <td>${(user.orders || []).length} <button class="normal" onclick="showUserOrders('${user.id}')">View</button></td>
+                            <td><button class="delete-btn" onclick="deleteItem('users', '${user.id}')">Delete</button></td>
+                        </tr>
+                    `).join('');
+                    // Now load orders after users
+                    loadOrders();
+                })
+                .catch(error => console.error('Error loading users:', error));
+
+            // Orders - called after users
+            function loadOrders() {
+                const allOrders = usersData.flatMap(user => user.orders || []);
+                const tbody = document.querySelector('#orders-table tbody');
+                tbody.innerHTML = allOrders.map(order => {
+                    const user = usersData.find(u => u.id == order.userId);
+                    const userName = user ? user.username : 'Unknown';
+                    return `
+                        <tr>
+                            <td>${order.id}</td>
+                            <td>${userName} (${order.userId})</td>
+                            <td>${order.items.map(item => `${item.title} (x${item.quantity})`).join(', ')}</td>
+                            <td>$${order.total}</td>
+                            <td>${order.address.line1}, ${order.address.city}, ${order.address.state}, ${order.address.zip}, ${order.address.country}</td>
+                            <td>${order.date}</td>
+                            <td><button class="delete-btn" onclick="deleteItem('orders', '${order.id}')">Delete</button></td>
+                        </tr>
+                    `;
+                }).join('');
+            }
+
+            // Contacts
+            fetch('http://localhost:3003/contacts', { headers: { 'Cache-Control': 'no-cache' } })
+                .then(response => response.json())
+                .then(contacts => {
+                    const tbody = document.querySelector('#contacts-table tbody');
+                    tbody.innerHTML = contacts.map(contact => `
+                        <tr>
+                            <td>${contact.id}</td>
+                            <td>${contact.name}</td>
+                            <td>${contact.email}</td>
+                            <td>${contact.subject}</td>
+                            <td>${contact.message}</td>
+                            <td><button class="delete-btn" onclick="deleteItem('contacts', '${contact.id}')">Delete</button></td>
+                        </tr>
+                    `).join('');
+                })
+                .catch(error => console.error('Error loading contacts:', error));
+
+            // Logins
+            fetch('http://localhost:3003/logins', { headers: { 'Cache-Control': 'no-cache' } })
+                .then(response => response.json())
+                .then(logins => {
+                    const tbody = document.querySelector('#logins-table tbody');
+                    tbody.innerHTML = logins.map(login => `
+                        <tr>
+                            <td>${login.id}</td>
+                            <td>${login.username}</td>
+                            <td>${login.loginDate}</td>
+                            <td><button class="delete-btn" onclick="deleteItem('logins', '${login.id}')">Delete</button></td>
+                        </tr>
+                    `).join('');
+                })
+                .catch(error => console.error('Error loading logins:', error));
+
+            // Newsletters
+            fetch('http://localhost:3003/newsletters', { headers: { 'Cache-Control': 'no-cache' } })
+                .then(response => response.json())
+                .then(newsletters => {
+                    const tbody = document.querySelector('#newsletters-table tbody');
+                    tbody.innerHTML = newsletters.map(newsletter => `
+                        <tr>
+                            <td>${newsletter.id}</td>
+                            <td>${newsletter.email}</td>
+                            <td><button class="delete-btn" onclick="deleteItem('newsletters', '${newsletter.id}')">Delete</button></td>
+                        </tr>
+                    `).join('');
+                })
+                .catch(error => console.error('Error loading newsletters:', error));
+        }
+
+        function deleteItem(endpoint, id) {
+            if (confirm('Are you sure you want to delete this item?')) {
+                if (endpoint === 'orders') {
+                    // Find the user with this order
+                    const user = usersData.find(u => u.orders && u.orders.some(o => o.id == id));
+                    if (user) {
+                        user.orders = user.orders.filter(o => o.id != id);
+                        fetch(`http://localhost:3003/users/${user.id}`, {
+                            method: 'PUT',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(user)
+                        })
+                        .then(response => {
+                            if (response.ok) {
+                                alert('Order deleted successfully!');
+                                loadData(); // Reload data
+                            } else {
+                                alert('Failed to delete order.');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error deleting order:', error);
+                            alert('Error deleting order.');
+                        });
+                    } else {
+                        alert('Order not found.');
+                    }
+                } else if (endpoint === 'users') {
+                    fetch(`http://localhost:3003/users/${id}`, { method: 'DELETE' })
+                    .then(response => {
+                        if (response.ok) {
+                            alert('User deleted successfully!');
+                            loadData();
+                        } else {
+                            alert('Failed to delete user.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error deleting user:', error);
+                        alert('Error deleting user.');
+                    });
+                } else {
+                    fetch(`http://localhost:3003/${endpoint}/${id}`, {
+                        method: 'DELETE'
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            alert('Item deleted successfully!');
+                            loadData(); // Reload data
+                        } else {
+                            alert('Failed to delete item.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error deleting item:', error);
+                        alert('Error deleting item.');
+                    });
+                }
+            }
+        }
+
+        // Show a simple modal with user's orders
+        function showUserOrders(userId) {
+            fetch(`http://localhost:3003/users/${userId}`, { headers: { 'Cache-Control': 'no-cache' } })
+                .then(response => response.json())
+                .then(user => {
+                    const orders = user.orders || [];
+                    const modal = document.createElement('div');
+                    modal.className = 'admin-orders-modal';
+                    modal.innerHTML = `
+                        <div class="admin-orders-content">
+                            <h3>Orders for ${user.username} (${orders.length})</h3>
+                            <div class="orders-list">
+                                ${orders.length ? orders.map(o => `
+                                    <div class="order-card">
+                                        <div><strong>ID:</strong> ${o.id}</div>
+                                        <div><strong>Date:</strong> ${o.date}</div>
+                                        <div><strong>Total:</strong> $${o.total}</div>
+                                        <div><strong>Items:</strong> ${ (o.items || []).map(it => `${it.title} (x${it.quantity})`).join(', ') }</div>
+                                        <div><strong>Address:</strong> ${o.address ? `${o.address.line1}, ${o.address.city}` : 'N/A'}</div>
+                                    </div>
+                                `).join('') : '<div>No orders</div>'}
+                            </div>
+                            <button id="close-orders" class="normal">Close</button>
+                        </div>
+                    `;
+                    document.body.appendChild(modal);
+                    document.getElementById('close-orders').addEventListener('click', () => modal.remove());
+                    modal.addEventListener('click', (e) => { if (e.target === modal) modal.remove(); });
+                })
+                .catch(error => {
+                    console.error('Error fetching user orders:', error);
+                    alert('Failed to load orders');
+                });
+        }
+
+        // basic modal styles
+        const style = document.createElement('style');
+        style.innerHTML = `
+            .admin-orders-modal{position:fixed;inset:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:9999}
+            .admin-orders-content{background:#fff;padding:20px;border-radius:8px;max-width:800px;width:90%;max-height:80vh;overflow:auto}
+            .order-card{border:1px solid #eee;padding:10px;margin:8px 0;border-radius:6px}
+            .admin-orders-content h3{margin-top:0}
+        `;
+        document.head.appendChild(style);
+
+        // Load data on page load
+        loadData();
+
+        // Refresh button
+        document.getElementById('refresh-btn').addEventListener('click', loadData);
+
+        // Auto-refresh every 10 seconds for dynamic updates
+        setInterval(loadData, 10000);
+    </script>
+</body>
+
+</html>

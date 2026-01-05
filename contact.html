@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>J&R Fashion</title>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <style>
+        .welcome-user {
+            color: #088178;
+            font-weight: 600;
+            font-size: 16px;
+            margin-right: 15px;
+        }
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border: 1px solid #ccc;
+            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            display: none;
+            z-index: 1000;
+            min-width: 200px;
+            border-radius: 5px;
+        }
+        .dropdown.show {
+            display: block;
+        }
+        .dropdown .welcome-user {
+            display: block;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #eee;
+        }
+        .dropdown #logout {
+            display: block;
+            color: #088178;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 0;
+            transition: color 0.3s;
+        }
+        .dropdown #logout:hover {
+            color: #065a4a;
+        }
+        #user-info {
+            position: relative;
+        }
+    </style>
+
+    <body>
+        <!-- Header Section  -->
+        <section id="header">
+            <a href="./index.html"><img src="./logo.png" alt="" style="width: 80px; height: 80px; border-radius: 50%;"></a>
+            
+            <div>
+                <ul id="navbar">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a class="active" href="contact.html">Contact</a></li>
+                    <li id="lg-bag"><a class="cart-link" href="cart.html"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count">0</span></a></li>
+                    <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
+                    <li id="user-info">
+                        <a href="login.html" id="user-link"><i class="fa-solid fa-user"></i></a>
+                        <div id="user-dropdown" class="dropdown">
+                            <span class="welcome-user">Welcome, <span id="user-name"></span></span>
+                            <a href="#" id="logout">Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="mobile">
+                <a class="cart-link" href="cart.html"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count">0</span></a>
+                 <i id="bar" class="fas fa-outdent"></i>
+            </div>
+        </section>
+
+        <!-- Hero Section -->
+        <section id="page-header" class="about-header">
+            <h2>#let's_talk</h2>
+            <p>LEAVE A MESSAGE, We love to hear from you!</p>
+        </section>
+
+        <!-- contact details -->
+         <section id="contact-details" class="section-p1">
+            <div class="details">
+                <span>GET IN TOUCH</span>
+                <h2>Visit one of agency location or contact us today</h2>
+                <h3>Head office</h3>
+                <div>
+                    <li>
+                        <i class="fal fa-map"></i>
+                        <p><strong>PJGJ+CMV, Aapni dukan, Javahar Rd, Surendranagar, Gujarat 363001</strong></p>
+                    </li>
+                    <li>
+                        <i class="fal fa-envelope"></i>
+                        <p><strong>jaydeepmakwana883@gmail.com</strong></p>
+                    </li>
+                    <li>
+                        <i class="fal fa-phone-alt"></i>
+                        <p><strong>+91 90123 45234</strong></p>
+                    </li>
+                    <li>
+                        <i class="fal fa-clock"></i>
+                        <p><strong>Monday to Saturday: 9:00am to 16:00.pm</strong></p>
+                    </li>
+                </div>
+            </div>
+
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.0573375098347!2d71.62909277476159!3d22.72611012732753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39594144a350230d%3A0xc3e80ec1b1f3f474!2sAapni%20dukan!5e0!3m2!1sen!2sin!4v1765871697876!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+         </section>
+
+         <section id="form-details">
+            <form id="contact-form" action="mailto:makwanajaydeep883@gmail.com" method="post" enctype="text/plain">
+                <span>LEAVE A MESSAGE</span>
+                <h2>We love to hear from you</h2>
+                <input type="text" id="contact-name" name="Name" placeholder="You Name" required>
+                <input type="email" id="contact-email" name="Email" placeholder="E-mail" required>
+                <input type="text" id="contact-subject" name="Subject" placeholder="Subject" required>
+                <textarea id="contact-message" name="Message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+                <button type="submit" class="normal">Submit</button>
+            </form>
+            <div class="people">
+                <div>
+                    <img src="./img/people/1.png" alt="">
+                    <p><span>Jaydeep Makwana</span><br>Leader <br> Phone: +91 96647 42027 <br>Email: jaydeepmakwana883@gmail.com</p>
+                </div>
+                <div>
+                    <img src="./img/people/2.png" alt="">
+                    <p><span>Rajendra Parmar</span><br>Co-Leader <br> Phone: +91 83200 43988 <br>Email: parmarrajendra00754@gmail.com</p>
+                </div>
+                <!-- <div>
+                    <img src="./img/people/3.png" alt="">
+                    <p><span>Emma Stone</span>Senior Marketing Manager <br> Phone: + 000 123 000 77 88 <br>Email: contact@example.com</p>
+                </div> -->
+            </div>
+         </section>
+
+        <!-- newsletter -->
+         <section id="newsletter" class="section-p1 section-m1">
+            <div class="newstext">
+                <h4>Sing Up For Newsletters</h4>
+                <p>Get E-mail updates about our latest shop and <span>special ofeers.</span></p>
+            </div>
+            <div class="form">
+                <input type="text" placeholder="You email address">
+                <button class="normal">Sign Up</button>
+            </div>
+         </section>
+
+        <!-- Footer -->
+          <footer class="section-p1">
+            <div class="col">
+                <img src="" alt="">
+                <h4>Contact</h4>
+                 <p><strong>Address: </strong> PJGJ+CMV, Aapni dukan, Javahar Rd, Surendranagar, Gujarat 363001</p>
+                <p><strong>Phone:</strong>+91 8320043988 / +91 9664742027</p>
+                <p><strong>Hours:</strong> 10:00 - 18:00, Mon - sat</p>
+                <div class="follow">
+                    <h4>Follow us</h4>
+                    <div class="icon">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-pinterest"></i>
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <h4>About</h4>
+                <a href="./about.html">About Us</a>
+                <a href="#">Delivery Information</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="./contact.html">Contact Us</a>
+            </div>
+
+            <div class="col">
+                <h4>My Account</h4>
+                <a href="./login.html">Sing In</a>
+                <a href="./cart.html">View Cart</a>
+                <a href="#">My Wishlist</a>
+                <a href="#">Track My Order</a>
+                <a href="#">Help</a>
+            </div>
+
+            <div class="copyrigth">
+                <p>@ 2025,J&R Fashion - HTML CSS JS</p>
+            </div>
+          </footer>
+
+        <script src="products.js"></script>
+        <script src="script.js"></script>
+        <script>
+            // Check login status and update header
+            const loggedInUser = localStorage.getItem('loggedInUser');
+            const userLink = document.getElementById('user-link');
+            const userDropdown = document.getElementById('user-dropdown');
+            const userName = document.getElementById('user-name');
+            if (loggedInUser) {
+                userLink.href = '#';
+                userName.textContent = loggedInUser;
+                userLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    userDropdown.classList.toggle('show');
+                });
+                document.getElementById('logout').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const loginId = localStorage.getItem('currentLoginId');
+                    if (loginId) {
+                        fetch(`http://localhost:3004/logins/${loginId}`, {
+                            method: 'DELETE'
+                        }).catch(error => console.error('Error removing login:', error));
+                        localStorage.removeItem('currentLoginId');
+                    }
+                    localStorage.removeItem('loggedInUser');
+                    location.reload();
+                });
+            }
+
+            // Newsletter signup
+            const newsletterButton = document.querySelector('#newsletter .form button');
+            const newsletterInput = document.querySelector('#newsletter .form input');
+            if (newsletterButton) {
+                newsletterButton.addEventListener('click', () => {
+                    const email = newsletterInput.value.trim();
+                    if (email && email.includes('@')) {
+                        // POST to server
+                        fetch('http://localhost:3003/newsletters', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ email })
+                        })
+                        .then(response => {
+                            if (response.ok) {
+                                alert('Thank you for subscribing!');
+                                newsletterInput.value = '';
+                            } else {
+                                alert('Failed to subscribe. Please try again.');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error subscribing:', error);
+                            alert('Error subscribing. Please try again.');
+                        });
+                    } else {
+                        alert('Please enter a valid email address.');
+                    }
+                });
+            }
+
+            // Contact form submission
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    // Don't prevent default, let it send email
+                    const name = document.getElementById('contact-name').value.trim();
+                    const email = document.getElementById('contact-email').value.trim();
+                    const subject = document.getElementById('contact-subject').value.trim();
+                    const message = document.getElementById('contact-message').value.trim();
+                    if (name && email && subject && message) {
+                        // POST to server
+                        fetch('http://localhost:3003/contacts', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ name, email, subject, message, date: new Date().toISOString().split('T')[0] })
+                        })
+                        .then(response => {
+                            if (response.ok) {
+                                console.log('Message stored successfully');
+                            } else {
+                                console.error('Failed to store message');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error storing message:', error);
+                        });
+                    }
+                });
+            }
+        </script>
+       
+    </body>
+
+</html>

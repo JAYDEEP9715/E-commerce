@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>J&R Fashion</title>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="style.css">
+    <style>
+        .welcome-user {
+            color: #088178;
+            font-weight: 600;
+            font-size: 16px;
+            margin-right: 15px;
+        }
+    </style>
+    </head>
+    <body>
+        // Header Section
+        <section id="header">
+            <a href="./index.html"><img src="./logo.png" alt="" style="width: 80px; height: 80px; border-radius: 50%;"></a>
+            <div>
+                <ul id="navbar">
+                    <li><a class="active" href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li id="lg-bag"><a class="cart-link" href="cart.html"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count">0</span></a></li>
+                    <li id="search-icon"><i class="fa-solid fa-search"></i></li>
+                    <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
+                    <li id="user-info">
+                        <a href="login.html" id="user-link"><i class="fa-solid fa-user"></i></a>
+                        <div id="user-dropdown" class="dropdown">
+                            <span class="welcome-user">Welcome, <span id="user-name"></span></span>
+                            <a href="#" id="logout">Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="mobile">
+                <a class="cart-link" href="cart.html"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count">0</span></a>
+                 <i id="bar" class="fas fa-outdent"></i>
+            </div>
+        </section>
+        <div id="search-bar" style="display: none; text-align: center; padding: 10px; background: #f5f5f5;">
+            <input type="text" id="search-input" placeholder="Search products..." style="width: 300px; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <!-- Hero Section -->
+        <section id="hero">
+            <h4>Trade-in-offer</h4>
+            <h2>Super Value Deals</h2>
+            <h1>On All Products</h1>
+            <p>Save more with coupons & up to 70% off!</p>
+            <a href="./shop.html"><button id="shop">Shop Now</button></a>
+        </section>
+        <!--Section -->
+        <!-- <section id="feature" class="section-p1">
+            <div class="fe-box">
+                <img src="img/features/f1.png" alt="">
+                <h6>Free Shipping</h6>
+            </div>
+            <div class="fe-box">
+                <img src="img/features/f2.png" alt="">
+                <h6>Online Order</h6>
+            </div>
+            <div class="fe-box">
+                <img src="img/features/f3.png" alt="">
+                <h6>Save Money</h6>
+            </div>
+            <div class="fe-box">
+                <img src="img/features/f4.png" alt="">
+                <h6>Promotions</h6>
+            </div>
+            <div class="fe-box">
+                <img src="img/features/f5.png" alt="">
+                <h6>Happy Sell</h6>
+            </div>
+            <div class="fe-box">
+                <img src="img/features/f6.png" alt="">
+                <h6>24/7 Support</h6>
+            </div>
+        </section> -->
+        <!-- Cloths Features -->
+        <section id="product1" class="section-p1">
+            <h2>Featured Product</h2>
+            <p>Summer Collection New Morden Design</p>
+            <div class="pro-container" id="product">         
+            </div>
+        </section>
+
+        <!-- banner section -->
+        <section id="banner" class="section-m1">
+            <h4>Repair Services</h4>
+            <h2>Up to <span>70% Off</span> - All t-Shirts & Accessories</h2>
+            <a href="./shop.html"><button class="normal">Explore More</button></a>
+
+        </section>
+
+        <!-- New Arrival -->
+        <!-- <section id="product1" class="section-p1">
+            <h2>New Arrivals</h2>
+            <p>Summer Collection New Morden Design</p>
+            <div class="pro-container">
+                <div class="pro">
+                    <img src="./img/products/n1.jpg" alt="">
+                    <div class="des">
+                        <span>addidas</span>
+                        <h5>Cartoon Astronaut T-Shirts</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>$78</h4>
+                    </div>
+                    <a href="#" data-id="101"><i class="fal fa-shopping-cart cart"></i></a>
+                </div>
+                <div class="pro">
+                    <img src="./img/products/n2.jpg" alt="">
+                    <div class="des">
+                        <span>addidas</span>
+                        <h5>Cartoon Astronaut T-Shirts</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>$78</h4>
+                    </div>
+                    <a href="#" data-id="102"><i class="fal fa-shopping-cart cart"></i></a>
+                </div>
+                <div class="pro">
+                    <img src="./img/products/n3.jpg" alt="">
+                    <div class="des">
+                        <span>addidas</span>
+                        <h5>Cartoon Astronaut T-Shirts</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>$78</h4>
+                    </div>
+                    <a href="#" data-id="103"><i class="fal fa-shopping-cart cart"></i></a>
+                </div>
+                <div class="pro">
+                    <img src="./img/products/n4.jpg" alt="">
+                    <div class="des">
+                        <span>addidas</span>
+                        <h5>Cartoon Astronaut T-Shirts</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>$78</h4>
+                    </div>
+                    <a href="#" data-id="104"><i class="fal fa-shopping-cart cart"></i></a>
+                </div>
+                <div class="pro">
+                    <img src="./img/products/n5.jpg" alt="">
+                    <div class="des">
+                        <span>addidas</span>
+                        <h5>Cartoon Astronaut T-Shirts</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>$78</h4>
+                    </div>
+                    <a href="#" data-id="105"><i class="fal fa-shopping-cart cart"></i></a>
+                </div>
+                <div class="pro">
+                    <img src="./img/products/n6.jpg" alt="">
+                    <div class="des">
+                        <span>addidas</span>
+                        <h5>Cartoon Astronaut T-Shirts</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>$78</h4>
+                    </div>
+                    <a href="#" data-id="106"><i class="fal fa-shopping-cart cart"></i></a>
+                </div>
+                <div class="pro">
+                    <img src="./img/products/n7.jpg" alt="">
+                    <div class="des">
+                        <span>addidas</span>
+                        <h5>Cartoon Astronaut T-Shirts</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>$78</h4>
+                    </div>
+                    <a href="#" data-id="107"><i class="fal fa-shopping-cart cart"></i></a>
+                </div>
+                <div class="pro">
+                    <img src="./img/products/n8.jpg" alt="">
+                    <div class="des">
+                        <span>addidas</span>
+                        <h5>Cartoon Astronaut T-Shirts</h5>
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>$78</h4>
+                    </div>
+                    <a href="#" data-id="108"><i class="fal fa-shopping-cart cart"></i></a>
+                </div> 
+                
+            </div>
+        </section> -->
+
+
+        <!-- newsletter -->
+         <section id="newsletter" class="section-p1 section-m1">
+            <div class="newstext">
+                <h4>Sign Up For Newsletters</h4>
+                <p>Get E-mail updates about our latest shop and <span>special offers.</span></p>
+            </div>
+            <div class="form">
+                <input type="email" placeholder="Your email address">
+                <button class="normal">Sign Up</button>
+            </div>
+         </section>
+
+         <!-- Footer -->
+
+          <footer class="section-p1">
+            <div class="col">
+                <img src="" alt="">
+                <h4>Contact</h4>
+                <p><strong>Address: </strong> PJGJ+CMV, Aapni dukan, Javahar Rd, Surendranagar, Gujarat 363001</p>
+                <p><strong>Phone:</strong>+91 8320043988 / +91 9664742027</p>
+                <p><strong>Hours:</strong> 10:00 - 18:00, Mon - sat</p>
+                <div class="follow">
+                    <h4>Follow us</h4>
+                    <div class="icon">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-twitter"></i>
+                        <a href="https://www.instagram.com/rajendra_.2415?igsh=MWl0MjdhbGJkaGVocw=="><i class="fab fa-instagram"></i></a>
+                        <i class="fab fa-pinterest"></i>
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <h4>About</h4>
+                <a href="./about.html">About Us</a>
+                <a href="#">Delivery Information</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="./contact.html">Contact Us</a>
+            </div>
+
+            <div class="col">
+                <h4>My Account</h4>
+                <a href="./login.html">Sing In</a>
+                <a href="./cart.html">View Cart</a>
+                <a href="#">My Wishlist</a>
+                <a href="#">Track My Order</a>
+                <a href="#">Help</a>
+            </div>
+
+            <div class="copyrigth">
+                <p>@ 2025,J&R Fashion - HTML CSS JS</p>
+            </div>
+          </footer>
+
+                <!-- Products and other data are loaded from server JSON (server/data.json).
+                         Inline `window.data` removed so `products.js` will fetch the JSON at runtime. -->
+        <script src="./products.js"></script>
+        <script src="script.js"></script>
+        <script>
+            // Check login status and update header
+            const loggedInUser = localStorage.getItem('loggedInUser');
+            const userLink = document.getElementById('user-link');
+            const userDropdown = document.getElementById('user-dropdown');
+            const userName = document.getElementById('user-name');
+            if (loggedInUser) {
+                userLink.href = '#';
+                userName.textContent = loggedInUser;
+                userLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    userDropdown.classList.toggle('show');
+                });
+                document.getElementById('logout').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const loginId = localStorage.getItem('currentLoginId');
+                    if (loginId) {
+                        fetch(`http://localhost:3003/logins/${loginId}`, {
+                            method: 'DELETE'
+                        }).catch(error => console.error('Error removing login:', error));
+                        localStorage.removeItem('currentLoginId');
+                    }
+                    localStorage.removeItem('loggedInUser');
+                    location.reload();
+                });
+            }
+
+            // Search functionality
+            let searchTerm = '';
+            const searchIcon = document.getElementById('search-icon');
+            const searchBar = document.getElementById('search-bar');
+            const searchInput = document.getElementById('search-input');
+
+            if (searchIcon) {
+                searchIcon.addEventListener('click', () => {
+                    searchBar.style.display = searchBar.style.display === 'block' ? 'none' : 'block';
+                });
+            }
+
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    searchTerm = e.target.value.toLowerCase();
+                    renderProducts();
+                });
+            }
+
+            function renderProducts() {
+                const container = document.getElementById('product');
+                if (!container) return;
+                const allowedIds = ["1", "2", "8", "12", "35", "37", "30", "31", "26", "21", "43", "45"];
+                const filteredProducts = products.filter(p => {
+                    const matchesSearch = !searchTerm || p.title.toLowerCase().includes(searchTerm) || p.brand.toLowerCase().includes(searchTerm);
+                    const isAllowed = allowedIds.includes(p.id);
+                    return matchesSearch && isAllowed;
+                });
+                container.innerHTML = filteredProducts.map(p => `
+                    <div class="pro" data-id="${p.id}">
+                        <a class="product-link" href="product.html?id=${p.id}"><img src="${p.img}" alt=""></a>
+                        <div class="des">
+                            <h5>${p.title}</h5>
+                            <p>${p.description}</p>
+                            <h4>₹${Math.round(p.price)}</h4>
+                        </div>
+                        <a href="#" data-id="${p.id}"><i class="fal fa-shopping-cart cart"></i></a>
+                    </div>
+                `).join('');
+            }
+
+            // Initial render
+            // renderProducts(); // Removed because products.js will call it when loaded
+
+            // Newsletter signup
+            const newsletterButton = document.querySelector('#newsletter .form button');
+            const newsletterInput = document.querySelector('#newsletter .form input');
+            if (newsletterButton) {
+                newsletterButton.addEventListener('click', () => {
+                    const email = newsletterInput.value.trim();
+                    if (email && email.includes('@')) {
+                        // POST to server
+                        fetch('http://localhost:3003/newsletters', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ email })
+                        })
+                        .then(response => {
+                            if (response.ok) {
+                                alert('Thank you for subscribing!');
+                                newsletterInput.value = '';
+                            } else {
+                                alert('Failed to subscribe. Please try again.');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error subscribing:', error);
+                            alert('Error subscribing. Please try again.');
+                        });
+                    } else {
+                        alert('Please enter a valid email address.');
+                    }
+                });
+            }
+
+            // Add functions to store/get users (POST to json-server or fallback to localStorage)
+async function checkServer(timeout = 3000) {
+    const url = 'http://localhost:3003/users';
+    try {
+        const controller = new AbortController();
+        const id = setTimeout(() => controller.abort(), timeout);
+        const res = await fetch(url, { method: 'GET', signal: controller.signal });
+        clearTimeout(id);
+        return res.ok;
+    } catch (err) {
+        console.warn('Server health check failed:', err && err.message);
+        return false;
+    }
+}
+
+async function storeUser(user) {
+    const newUser = {
+        username: user.username || '',
+        password: user.password || '',
+        email: user.email || '',
+        name: user.name || '',
+    };
+
+    const lsKey = 'users';
+    // try server when available
+    if (await checkServer()) {
+        try {
+            const res = await fetch('http://localhost:3003/users', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newUser)
+            });
+            const text = await res.text(); // capture body for debugging
+            if (!res.ok) {
+                console.error('Server POST failed:', res.status, text);
+                throw new Error('Server POST failed: ' + res.status);
+            }
+            const created = JSON.parse(text);
+            // update in-memory and localStorage for consistency
+            window.data = window.data || {};
+            window.data.users = window.data.users || [];
+            window.data.users.push(created);
+            const lsUsers = JSON.parse(localStorage.getItem(lsKey)) || [];
+            lsUsers.push(created);
+            localStorage.setItem(lsKey, JSON.stringify(lsUsers));
+            console.info('User saved to server and localStorage:', created);
+            return created;
+        } catch (err) {
+            console.warn('Error saving to server, falling back to localStorage:', err && err.message);
+            // fall through to localStorage fallback below
+        }
+    } else {
+        console.info('Server not reachable, storing user in localStorage.');
+    }
+
+    // Fallback: localStorage
+    let users = JSON.parse(localStorage.getItem(lsKey)) || (window.data && window.data.users) || [];
+    const maxId = users.reduce((m, u) => (u.id && u.id > m ? u.id : m), 0);
+    const assigned = Object.assign({ id: maxId + 1 }, newUser);
+    users.push(assigned);
+    localStorage.setItem(lsKey, JSON.stringify(users));
+    window.data = window.data || {};
+    window.data.users = users;
+    console.info('User saved to localStorage:', assigned);
+    return assigned;
+}
+
+function getUsers() {
+    const lsKey = 'users';
+    return fetch('http://localhost:3003/users')
+        .then(r => {
+            if (!r.ok) throw new Error('Server responded ' + r.status);
+            return r.json();
+        })
+        .then(users => {
+            window.data = window.data || {};
+            window.data.users = users;
+            localStorage.setItem(lsKey, JSON.stringify(users));
+            console.info('Users loaded from server and persisted to localStorage.');
+            return users;
+        })
+        .catch(err => {
+            console.warn('Could not load users from server:', err && err.message);
+            const ls = JSON.parse(localStorage.getItem(lsKey));
+            const out = (ls && ls.length) ? ls : (window.data && window.data.users) || [];
+            console.info('Users loaded from localStorage / window.data.', out.length);
+            return out;
+        });
+}
+
+async function syncUsers() {
+    try {
+        const users = await getUsers();
+        return users;
+    } catch (e) {
+        return (window.data && window.data.users) || [];
+    }
+}
+
+// expose globally
+window.storeUser = storeUser;
+window.getUsers = getUsers;
+window.syncUsers = syncUsers;
+        </script>
+    </body>
+
+</html>
