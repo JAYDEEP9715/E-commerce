@@ -518,9 +518,10 @@ function openCheckoutModal(){
     const totalEl = document.getElementById('checkout-total');
 
     // populate items
+
     if(itemsContainer){
         itemsContainer.innerHTML = cart.length ? cart.map(i => `
-            <div class="item">
+            <div class="item" data-uid="${i.uid || i.id}">
                 <img src="${i.img}" alt="">
                 <div class="item-info">
                     <div class="item-title">${i.title}</div>
